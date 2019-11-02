@@ -1,0 +1,58 @@
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem!important;
+}
+.shadow-sm {
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075)!important;
+}
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.align-items-center {
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+.justify-content-between {
+    -ms-flex-pack: justify!important;
+    justify-content: space-between!important;
+}
+.d-flex {
+    display: -ms-flexbox!important;
+    display: flex!important;
+}
+.text-muted {
+    color: #6c757d!important;
+}
+.card-text, .card img{
+    cursor: pointer;
+}
+
+.card-description {
+    padding: 10px;
+}
+.deliveryType {
+    padding: 10px 30px;
+    margin-bottom: 10px;
+}
+.btn-full{
+    width:100%;
+}
+.ship-via{
+    text-align: center;
+}
+.modal-dialog.modal-xl {
+    width: 1140px;
+}

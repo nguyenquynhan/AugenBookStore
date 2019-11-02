@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #F0F0F0 !important;
+}
+
+.logo-bg {
+    height: 40px;
+    background: black; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#b3b3b3, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#b3b3b3, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#b3b3b3, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#b3b3b3, white); /* Standard syntax (must be last) */
+}
+
+.alert {
+    width: 400px !important;
+}
+
+.content-box {
+    background-color: white;
+    padding: 10px;
+    border-bottom: 10px solid black;
+}
+
+.vcenter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}

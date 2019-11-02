@@ -1,0 +1,121 @@
+﻿<nav class="navbar navbar-inverse"></nav>
+<div class="container">
+    <input type="search" [(ngModel)]="textSearch" (change)="onChange()" class="form-control" placeholder="Input search text and enter"/>
+    <p>{{loading ? '...' : '&nbsp;'}}</p>
+    <div class="row">
+        <div *ngFor="let book of books" class="col-md-4 col-xs-6">            
+                <div class="card mb-4 shadow-sm" (click)="onClickDetail(book.id)" data-toggle="modal" data-target="#detail-modal">                
+                    <img [src]="book.thumbnail" [alt]="book.title" height="194" /><br/>
+                    <div class="card-body">
+                        <p class="card-text">{{book.title}}</p>
+                        <div class="d-flex justify-content-between align-items-center">                        
+                            <small class="text-muted">{{book.authors[0]}} - {{book.publishedDate}}</small>
+                        </div>
+                    </div>
+                </div>
+        </div>
+            
+    </div>
+</div>
+
+<div id="detail-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="close" data-dismiss="modal">x</div>
+                    <h2 class="modal-title ms-webpart-titleText" *ngIf="book">{{book.title}}</h2>
+                </div>
+                <div class="modal-body modal-body-scroll">
+                    <div class="row" *ngIf="book">
+                        <div class="col-md-12">            
+                            <div class="card mb-4 shadow-sm">                
+                                <img [src]="book.medium" [alt]="book.title" width="400"/>
+                                <p class="card-description" [innerHTML]="book.description"></p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">                        
+                                <small class="text-muted">{{book.authors[0]}} - {{book.publishedDate}}</small>
+                            </div>
+                        </div>                            
+                    </div>      
+                    <div class="row" *ngIf="!book">Loading ...</div>              
+                </div>
+                <div class="modal-footer">
+                    <div class="ship-via">
+                        <span>Ship via:</span>
+                        <span *ngFor="let delivery of deliveryTypes">
+                            <span class="btn btn-default deliveryType" (click)="choseDeliveryType(delivery)"  [ngClass]="{ 'active': (buy.delivery && buy.delivery.name == delivery.name) }">{{delivery.name}} ${{delivery.cost}}</span>
+                        </span>
+                        
+                    </div>
+                    <span class="btn btn-default btn-lg btn-full" data-dismiss="modal" data-toggle="modal" data-target="#confirm-modal">BUY</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<div id="confirm-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-xs">
+            <div class="modal-content">   
+                <div class="modal-header">
+                    <h2 class="modal-title ms-webpart-titleText">Confirm Information</h2>
+                </div>             
+                <div class="modal-body">
+                    <div class="card mb-4 shadow-sm" *ngIf="buy && buy.book && buy.delivery">                
+                        <img [src]="buy.book.thumbnail" [alt]="buy.book.title" height="250" /><br/>
+                        <div class="card-body">
+                            <p class="card-text">Book: {{buy.book.title}}</p>
+                            <p class="card-text">Cost: ${{buy.delivery.cost}}</p>
+                            <p class="card-text">Delivery Service: {{buy.delivery.name}}</p>
+                            <div class="form-group row">
+                                <label for="cusotomer-name" class="col-sm-4 col-form-label">Your name:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" [(ngModel)]="buy.customerName" class="form-control" id="cusotomer-name" placeholder="Your name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="cusotomer-phone" class="col-sm-4 col-form-label">Your phone:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" [(ngModel)]="buy.customerPhone" class="form-control" id="cusotomer-phone" placeholder="Your phone">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="customerAddress" class="col-sm-4 col-form-label">Your address:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" [(ngModel)]="buy.customerAddress" class="form-control" id="customerAddress" placeholder="Your address">
+                                </div>
+                            </div>
+                        </div>
+                    </div>        
+                </div>
+                <div class="modal-footer">
+                    <span class="btn btn-default btn-lg btn-full" data-dismiss="modal" (click)="clickConfirm()" data-toggle="modal" data-target="#finish-modal">Confirm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="finish-modal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-xs">
+                <div class="modal-content">   
+                    <div class="modal-header">
+                        <h2 class="modal-title ms-webpart-titleText">Finished your order</h2>
+                    </div>             
+                    <div class="modal-body">
+                        <div class="card mb-4 shadow-sm" *ngIf="buy && buy.book && buy.delivery && buy.delivery.info">                
+                            <img [src]="buy.book.thumbnail" [alt]="buy.book.title" height="250" /><br/>
+                            <div class="card-body">
+                                <p class="card-text">Book: {{buy.book.title}}</p>
+                                <p class="card-text">Delivery Info: {{buy.delivery.info}}</p>
+                                <p class="card-text">Your name: {{buy.customerName}}</p>
+                                <p class="card-text">Your phone: {{buy.customerPhone}}</p>
+                                <p class="card-text">Your address: {{buy.customerAddress}}</p>                                
+                            </div>
+                        </div>        
+                    </div>
+                    <div class="modal-footer">
+                        <span class="btn btn-default btn-lg btn-full" data-dismiss="modal">Close</span>
+                    </div>
+                </div>
+            </div>
+        </div>
