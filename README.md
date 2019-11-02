@@ -8,8 +8,8 @@ services. The store coordinates with delivery vendors of motorbike, train and ai
 # How to start
 * API: Open AugenBookStore.sln, then F5 to run API
 * Font-End: 
-** npm install
-** npm run start
+`npm install`
+`npm run start`
 
 # Constructors 
 * Three layers: Controller, Services, Repositories
@@ -24,4 +24,4 @@ services. The store coordinates with delivery vendors of motorbike, train and ai
 * Coding API: 5 hours (including tests)
 * Coding Font-End: 3 hours (including tests)
 * Building and testing 1 hour
-* '''Grant total: 12 hours'''
+* ```Grant total: 12 hours```
