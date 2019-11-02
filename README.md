@@ -8,15 +8,15 @@ services. The store coordinates with delivery vendors of motorbike, train and ai
 # How to start
 * API: Open AugenBookStore.sln, then F5 to run API
 * Font-End: 
-`npm install`
-`npm run start`
+    * `npm install`
+    * `npm run start`
 
 # Constructors 
 * Three layers: Controller, Services, Repositories
 * Patterns:
-** Repository: in future, if change date source, the service layer will not care and always works well.
-** Dependence Injection: reduce dependence between classes, easier init a object that don't care dependence of them.
-** Strategy: the calculate cost base on service type and season, the cost will have different behaviors. To solve this, we apply Strategy Pattern.
+    * Repository: in future, if change date source, the service layer will not care and always works well.
+    * Dependence Injection: reduce dependence between classes, easier init a object that don't care dependence of them.
+    * Strategy: the calculate cost base on service type and season, the cost will have different behaviors. To solve this, we apply Strategy Pattern.
 
 # Time summary:
 * Read requiment: 1 hour
