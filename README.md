@@ -11,7 +11,7 @@ services. The store coordinates with delivery vendors of motorbike, train and ai
     * `npm install`
     * `npm run start`
 
-# Constructors 
+# Architecture 
 * Three layers: Controller, Services, Repositories
 * Patterns:
     * Repository: in future, if change date source, the service layer will not care and always works well.
